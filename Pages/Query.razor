@@ -1,0 +1,17 @@
+@page "/query"
+@using Microsoft.AspNetCore.WebUtilities
+@inject NavigationManager NavigationManager
+
+<h1>Query string parse example</h1>
+<p>value: @queryValue</p>
+
+@code {
+  private string queryValue = "Not Set";
+  private List<string> values = new ArrayList()<string>;
+
+  protected override void OnInitialized()
+  {
+    var query = new Uri(NavigationManager.Uri).Query;
+    Dictionary<string, string> params = QueryHelpers.ParseQuery(query);
+  }
+}

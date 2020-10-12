@@ -1,0 +1,14 @@
+@page "/hello"
+@page "/hello/{msg}"
+
+<h1>@Msg</h1>
+
+@code {
+  [Parameter]
+  public string Msg{ get; set; }
+
+  protected override void OnInitialized()
+  {
+      Msg = Msg ?? "fantastic";
+  }
+}
